@@ -1,0 +1,1346 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #02030a;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(104, 42, 133, 0.42),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 69, 160, 0.08),
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      #02020a 0%,
+      #080516 55%,
+      #02030b 100%
+    );
+
+  transition:
+    opacity 1.4s ease,
+    visibility 1.4s ease;
+}
+
+.intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   INTRO GLOW
+========================================================= */
+
+.intro__glow {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 85, 180, 0.20),
+      rgba(143, 62, 190, 0.08) 45%,
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  animation:
+    introGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes introGlow {
+
+  from {
+    transform: scale(0.82);
+    opacity: 0.55;
+  }
+
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   INTRO STARS
+========================================================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.stars span,
+.garden-stars span {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  box-shadow:
+    0 0 5px #fff,
+    0 0 12px rgba(255, 160, 220, 0.8);
+
+  animation:
+    twinkle 3s ease-in-out infinite;
+}
+
+.stars span:nth-child(1) { top: 12%; left: 8%; }
+.stars span:nth-child(2) { top: 22%; left: 82%; animation-delay: .5s; }
+.stars span:nth-child(3) { top: 68%; left: 13%; animation-delay: 1s; }
+.stars span:nth-child(4) { top: 82%; left: 76%; animation-delay: 1.4s; }
+.stars span:nth-child(5) { top: 15%; left: 51%; animation-delay: 1.8s; }
+.stars span:nth-child(6) { top: 48%; left: 92%; animation-delay: 2.1s; }
+.stars span:nth-child(7) { top: 58%; left: 4%; animation-delay: 2.5s; }
+.stars span:nth-child(8) { top: 87%; left: 51%; animation-delay: .7s; }
+.stars span:nth-child(9) { top: 35%; left: 23%; animation-delay: 1.2s; }
+.stars span:nth-child(10) { top: 63%; left: 68%; animation-delay: .4s; }
+.stars span:nth-child(11) { top: 7%; left: 34%; animation-delay: 1.5s; }
+.stars span:nth-child(12) { top: 77%; left: 34%; animation-delay: 2s; }
+.stars span:nth-child(13) { top: 42%; left: 13%; animation-delay: .8s; }
+.stars span:nth-child(14) { top: 28%; left: 61%; animation-delay: 1.7s; }
+.stars span:nth-child(15) { top: 91%; left: 88%; animation-delay: 2.4s; }
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: .15;
+    transform: scale(.65);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+
+/* =========================================================
+   INTRO CONTENT
+========================================================= */
+
+.intro__content {
+  position: relative;
+  z-index: 5;
+
+  width: min(90%, 720px);
+
+  text-align: center;
+
+  animation:
+    introAppear 1.5s ease forwards;
+}
+
+@keyframes introAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro__eyebrow {
+  margin-bottom: 18px;
+
+  color: rgba(255,255,255,.58);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 11px;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   COOLER BIRTHDAY FONT
+========================================================= */
+
+.intro h1 {
+  color: #fff;
+
+  font-family: "DM Serif Display", serif;
+
+  font-size: clamp(58px, 10vw, 110px);
+
+  font-weight: 400;
+
+  line-height: .95;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 0 12px rgba(255, 170, 225, .8),
+    0 0 35px rgba(255, 75, 180, .45),
+    0 0 75px rgba(255, 75, 180, .2);
+}
+
+.intro__line {
+  width: 80px;
+  height: 1px;
+
+  margin: 28px auto 24px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ff9dd5,
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(255, 119, 197, .8);
+}
+
+.intro__birthday {
+  color: #ffc1e3;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(18px, 3vw, 27px);
+
+  font-weight: 500;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 15px rgba(255, 115, 190, .55);
+}
+
+.intro__message {
+  max-width: 540px;
+
+  margin: 24px auto 34px;
+
+  color: rgba(255,255,255,.62);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.start-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 15px 25px;
+
+  border: 1px solid rgba(255, 159, 215, .6);
+
+  border-radius: 50px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 65, 166, .18),
+      rgba(116, 57, 193, .2)
+    );
+
+  backdrop-filter: blur(12px);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+.start-button b {
+  color: #ff9dce;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.start-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.25),
+      transparent
+    );
+
+  transition: transform .7s ease;
+}
+
+.start-button:hover::before {
+  transform: translateX(100%);
+}
+
+.start-button:hover {
+  transform: translateY(-4px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 65, 166, .35),
+      rgba(116, 57, 193, .32)
+    );
+
+  box-shadow:
+    0 12px 40px rgba(255, 65, 166, .25);
+}
+
+.start-button:active {
+  transform: scale(.97);
+}
+
+
+/* =========================================================
+   GARDEN
+========================================================= */
+
+.garden {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 1.5s ease;
+}
+
+body.started .garden {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   NIGHT
+========================================================= */
+
+.night {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 90%,
+      rgba(77, 28, 92, .55),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 50% 120%,
+      rgba(214, 45, 120, .11),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      #01030b 0%,
+      #05091b 50%,
+      #10071c 100%
+    );
+}
+
+
+/* =========================================================
+   MOON
+========================================================= */
+
+.moon {
+  position: absolute;
+
+  top: 8%;
+  right: 11%;
+
+  width: 92px;
+  height: 92px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 32%,
+      #fff,
+      #fff7db 55%,
+      #f1d8a1
+    );
+
+  box-shadow:
+    0 0 18px rgba(255, 248, 220, .9),
+    0 0 55px rgba(255, 228, 170, .35),
+    0 0 100px rgba(255, 206, 140, .12);
+
+  opacity: .9;
+}
+
+.moon::after {
+  content: "";
+
+  position: absolute;
+
+  top: -7px;
+  left: 20px;
+
+  width: 92px;
+  height: 92px;
+
+  border-radius: 50%;
+
+  background: #02050f;
+}
+
+.moon__glow {
+  position: absolute;
+  inset: -35px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 225, 168, .07);
+
+  filter: blur(15px);
+}
+
+
+/* =========================================================
+   GARDEN STARS
+========================================================= */
+
+.garden-stars {
+  position: absolute;
+  inset: 0;
+}
+
+.garden-stars span:nth-child(1) { top: 15%; left: 7%; }
+.garden-stars span:nth-child(2) { top: 25%; left: 17%; animation-delay: .5s; }
+.garden-stars span:nth-child(3) { top: 11%; left: 31%; animation-delay: 1s; }
+.garden-stars span:nth-child(4) { top: 20%; left: 47%; animation-delay: 1.5s; }
+.garden-stars span:nth-child(5) { top: 31%; left: 62%; animation-delay: 2s; }
+.garden-stars span:nth-child(6) { top: 14%; left: 76%; animation-delay: .8s; }
+.garden-stars span:nth-child(7) { top: 40%; left: 88%; animation-delay: 1.2s; }
+.garden-stars span:nth-child(8) { top: 51%; left: 8%; animation-delay: .3s; }
+.garden-stars span:nth-child(9) { top: 47%; left: 22%; animation-delay: 1.8s; }
+.garden-stars span:nth-child(10) { top: 54%; left: 38%; animation-delay: .9s; }
+.garden-stars span:nth-child(11) { top: 43%; left: 54%; animation-delay: 1.3s; }
+.garden-stars span:nth-child(12) { top: 59%; left: 72%; animation-delay: 2.2s; }
+.garden-stars span:nth-child(13) { top: 48%; left: 94%; animation-delay: .7s; }
+.garden-stars span:nth-child(14) { top: 72%; left: 14%; animation-delay: 1.4s; }
+.garden-stars span:nth-child(15) { top: 66%; left: 30%; animation-delay: .4s; }
+.garden-stars span:nth-child(16) { top: 75%; left: 61%; animation-delay: 1.7s; }
+.garden-stars span:nth-child(17) { top: 68%; left: 82%; animation-delay: 2.1s; }
+.garden-stars span:nth-child(18) { top: 84%; left: 48%; animation-delay: .6s; }
+
+
+/* =========================================================
+   FLOWER FIELD
+========================================================= */
+
+.flower-field {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 88%;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   DAISY BASE
+========================================================= */
+
+.daisy {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 150px;
+  height: 430px;
+
+  transform-origin: bottom center;
+
+  animation:
+    daisyGrow 2s ease-out both,
+    daisySway 6s ease-in-out infinite;
+
+  animation-delay: var(--grow-delay), var(--sway-delay);
+}
+
+@keyframes daisyGrow {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(80px)
+      scale(.2);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   DAISY POSITIONS
+========================================================= */
+
+.daisy--1 {
+  left: 50%;
+  transform: translateX(-50%) scale(1.05);
+  --grow-delay: .2s;
+  --sway-delay: 2s;
+  z-index: 20;
+}
+
+.daisy--2 {
+  left: 26%;
+  transform: scale(.72) rotate(-5deg);
+  --grow-delay: .7s;
+  --sway-delay: 1s;
+  z-index: 16;
+}
+
+.daisy--3 {
+  left: 72%;
+  transform: scale(.78) rotate(6deg);
+  --grow-delay: .9s;
+  --sway-delay: 3s;
+  z-index: 16;
+}
+
+.daisy--4 {
+  left: 7%;
+  transform: scale(.52) rotate(-9deg);
+  --grow-delay: 1.2s;
+  --sway-delay: 4s;
+  z-index: 13;
+}
+
+.daisy--5 {
+  left: 84%;
+  transform: scale(.55) rotate(8deg);
+  --grow-delay: 1.3s;
+  --sway-delay: 2.5s;
+  z-index: 13;
+}
+
+.daisy--6 {
+  left: 39%;
+  transform: scale(.58) rotate(-3deg);
+  --grow-delay: 1.5s;
+  --sway-delay: 4.5s;
+  z-index: 14;
+}
+
+
+/* =========================================================
+   DAISY HEAD
+========================================================= */
+
+.daisy__head {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 150px;
+  height: 150px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  z-index: 10;
+
+  filter:
+    drop-shadow(0 0 12px rgba(255, 230, 170, .25));
+}
+
+
+/* =========================================================
+   DAISY PETALS
+========================================================= */
+
+.petal {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 38px;
+  height: 76px;
+
+  transform-origin: 50% 100%;
+
+  margin-left: -19px;
+  margin-top: -76px;
+
+  border-radius:
+    50% 50% 45% 45% /
+    65% 65% 35% 35%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fffdf7 0%,
+      #fff9e8 38%,
+      #ffe8d7 75%,
+      #ffd2e2 100%
+    );
+
+  box-shadow:
+    inset 0 -8px 12px rgba(255, 173, 204, .15),
+    0 0 8px rgba(255, 242, 220, .55),
+    0 0 20px rgba(255, 173, 210, .18);
+
+  animation:
+    petalGlow 3.2s ease-in-out infinite alternate;
+}
+
+
+/* Individual petal rotations */
+
+.petal--1  { transform: rotate(0deg) translateY(-2px); }
+.petal--2  { transform: rotate(30deg) translateY(-2px); }
+.petal--3  { transform: rotate(60deg) translateY(-2px); }
+.petal--4  { transform: rotate(90deg) translateY(-2px); }
+.petal--5  { transform: rotate(120deg) translateY(-2px); }
+.petal--6  { transform: rotate(150deg) translateY(-2px); }
+.petal--7  { transform: rotate(180deg) translateY(-2px); }
+.petal--8  { transform: rotate(210deg) translateY(-2px); }
+.petal--9  { transform: rotate(240deg) translateY(-2px); }
+.petal--10 { transform: rotate(270deg) translateY(-2px); }
+.petal--11 { transform: rotate(300deg) translateY(-2px); }
+.petal--12 { transform: rotate(330deg) translateY(-2px); }
+
+@keyframes petalGlow {
+
+  from {
+    filter: brightness(.95);
+  }
+
+  to {
+    filter: brightness(1.1);
+  }
+}
+
+
+/* =========================================================
+   DAISY CENTER
+========================================================= */
+
+.daisy__center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 54px;
+  height: 54px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #fff09a 0%,
+      #ffd94d 25%,
+      #e99b18 68%,
+      #a95b0a 100%
+    );
+
+  box-shadow:
+    0 0 10px #fff1a0,
+    0 0 25px rgba(255, 196, 49, .9),
+    0 0 45px rgba(255, 176, 30, .35);
+
+  z-index: 30;
+
+  animation:
+    centerPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes centerPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px #fff1a0,
+      0 0 25px rgba(255, 196, 49, .8),
+      0 0 45px rgba(255, 176, 30, .25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 15px #fff5b0,
+      0 0 35px rgba(255, 196, 49, 1),
+      0 0 60px rgba(255, 176, 30, .4);
+  }
+}
+
+
+/* =========================================================
+   CENTER DOTS
+========================================================= */
+
+.daisy__center i {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #fff2a3;
+
+  box-shadow:
+    0 0 4px rgba(255,255,200,.9);
+}
+
+.daisy__center i:nth-child(1) {
+  top: 9px;
+  left: 24px;
+}
+
+.daisy__center i:nth-child(2) {
+  top: 15px;
+  right: 10px;
+}
+
+.daisy__center i:nth-child(3) {
+  top: 29px;
+  right: 8px;
+}
+
+.daisy__center i:nth-child(4) {
+  bottom: 9px;
+  right: 20px;
+}
+
+.daisy__center i:nth-child(5) {
+  bottom: 9px;
+  left: 20px;
+}
+
+.daisy__center i:nth-child(6) {
+  top: 29px;
+  left: 8px;
+}
+
+.daisy__center i:nth-child(7) {
+  top: 15px;
+  left: 10px;
+}
+
+.daisy__center i:nth-child(8) {
+  top: 25px;
+  left: 25px;
+
+  width: 4px;
+  height: 4px;
+}
+
+
+/* =========================================================
+   STEM
+========================================================= */
+
+.stem {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 10px;
+  height: 340px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #06361d,
+      #2b934f 45%,
+      #0a401f
+    );
+
+  box-shadow:
+    0 0 8px rgba(41, 163, 82, .3);
+
+  transform-origin: bottom;
+}
+
+
+/* =========================================================
+   STEM LEAVES
+========================================================= */
+
+.stem-leaf {
+  position: absolute;
+
+  width: 82px;
+  height: 31px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #45a957,
+      #0b5429
+    );
+
+  box-shadow:
+    0 0 8px rgba(39, 148, 76, .25);
+
+  border-radius:
+    100% 0 100% 0;
+}
+
+.stem-leaf--left {
+  left: -67px;
+  top: 145px;
+
+  transform:
+    rotate(-23deg);
+}
+
+.stem-leaf--right {
+  right: -67px;
+  top: 210px;
+
+  transform:
+    scaleX(-1)
+    rotate(-23deg);
+}
+
+
+/* =========================================================
+   DAISY SWAY
+========================================================= */
+
+@keyframes daisySway {
+
+  0%,
+  100% {
+    margin-left: 0;
+  }
+
+  50% {
+    margin-left: 7px;
+  }
+}
+
+
+/* =========================================================
+   GROUND
+========================================================= */
+
+.ground-glow {
+  position: absolute;
+
+  left: 50%;
+  bottom: -10%;
+
+  width: 100%;
+  height: 38%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(72, 151, 78, .22),
+      rgba(25, 71, 42, .12) 40%,
+      transparent 70%
+    );
+
+  filter: blur(15px);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   HEARTS
+========================================================= */
+
+.hearts {
+  position: absolute;
+  inset: 0;
+
+  z-index: 40;
+
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+
+  bottom: -40px;
+
+  color: #ff6fae;
+
+  font-size: 20px;
+
+  opacity: 0;
+
+  text-shadow:
+    0 0 5px #ff4d9c,
+    0 0 14px rgba(255, 55, 155, .85),
+    0 0 30px rgba(255, 55, 155, .35);
+
+  animation:
+    heartRise var(--duration) linear infinite,
+    heartFloat var(--float) ease-in-out infinite alternate;
+
+  animation-delay:
+    var(--delay),
+    var(--delay);
+}
+
+.heart--1 {
+  left: 5%;
+  --duration: 11s;
+  --float: 3s;
+  --delay: 0s;
+}
+
+.heart--2 {
+  left: 12%;
+  --duration: 14s;
+  --float: 4s;
+  --delay: 2s;
+}
+
+.heart--3 {
+  left: 20%;
+  --duration: 12s;
+  --float: 3s;
+  --delay: 5s;
+}
+
+.heart--4 {
+  left: 29%;
+  --duration: 16s;
+  --float: 5s;
+  --delay: 1s;
+}
+
+.heart--5 {
+  left: 38%;
+  --duration: 13s;
+  --float: 3s;
+  --delay: 4s;
+}
+
+.heart--6 {
+  left: 47%;
+  --duration: 15s;
+  --float: 4s;
+  --delay: 7s;
+}
+
+.heart--7 {
+  left: 55%;
+  --duration: 11s;
+  --float: 3s;
+  --delay: 3s;
+}
+
+.heart--8 {
+  left: 63%;
+  --duration: 14s;
+  --float: 4s;
+  --delay: 6s;
+}
+
+.heart--9 {
+  left: 71%;
+  --duration: 12s;
+  --float: 3s;
+  --delay: 2s;
+}
+
+.heart--10 {
+  left: 79%;
+  --duration: 16s;
+  --float: 5s;
+  --delay: 8s;
+}
+
+.heart--11 {
+  left: 87%;
+  --duration: 13s;
+  --float: 4s;
+  --delay: 4s;
+}
+
+.heart--12 {
+  left: 92%;
+  --duration: 15s;
+  --float: 3s;
+  --delay: 1s;
+}
+
+.heart--13 {
+  left: 16%;
+  --duration: 17s;
+  --float: 4s;
+  --delay: 9s;
+}
+
+.heart--14 {
+  left: 68%;
+  --duration: 18s;
+  --float: 3s;
+  --delay: 10s;
+}
+
+@keyframes heartRise {
+
+  0% {
+    opacity: 0;
+    transform:
+      translateY(0)
+      scale(.45)
+      rotate(-15deg);
+  }
+
+  12% {
+    opacity: .85;
+  }
+
+  80% {
+    opacity: .65;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translateY(-115vh)
+      scale(1)
+      rotate(20deg);
+  }
+}
+
+@keyframes heartFloat {
+
+  from {
+    margin-left: -18px;
+  }
+
+  to {
+    margin-left: 25px;
+  }
+}
+
+
+/* =========================================================
+   MUSIC CONTROL
+========================================================= */
+
+.music-control {
+  position: absolute;
+
+  right: 25px;
+  top: 25px;
+
+  z-index: 100;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 170, 220, .5);
+
+  border-radius: 50%;
+
+  color: white;
+
+  background:
+    rgba(255,255,255,.07);
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 20px rgba(255, 90, 175, .18);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.music-control:hover {
+  transform: scale(1.1);
+
+  background:
+    rgba(255, 90, 175, .17);
+}
+
+.music-control.playing {
+  animation:
+    musicPulse 1.5s ease-in-out infinite;
+}
+
+.music-icon {
+  font-size: 21px;
+  line-height: 1;
+}
+
+@keyframes musicPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px rgba(255, 89, 174, .25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(255, 89, 174, .75);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .intro__eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .intro h1 {
+    font-size: clamp(50px, 16vw, 82px);
+  }
+
+  .intro__birthday {
+    font-size: 15px;
+    letter-spacing: 2.5px;
+  }
+
+  .intro__message {
+    padding: 0 20px;
+
+    font-size: 12px;
+  }
+
+  .moon {
+    width: 62px;
+    height: 62px;
+
+    top: 7%;
+    right: 8%;
+  }
+
+  .moon::after {
+    width: 62px;
+    height: 62px;
+
+    left: 14px;
+  }
+
+  .flower-field {
+    height: 82%;
+  }
+
+  .daisy {
+    width: 120px;
+    height: 330px;
+  }
+
+  .daisy__head {
+    width: 120px;
+    height: 120px;
+  }
+
+  .petal {
+    width: 31px;
+    height: 61px;
+
+    margin-left: -15.5px;
+    margin-top: -61px;
+  }
+
+  .daisy__center {
+    width: 44px;
+    height: 44px;
+  }
+
+  .stem {
+    height: 270px;
+    width: 8px;
+  }
+
+  .stem-leaf {
+    width: 65px;
+    height: 26px;
+  }
+
+  .stem-leaf--left {
+    left: -53px;
+    top: 110px;
+  }
+
+  .stem-leaf--right {
+    right: -53px;
+    top: 170px;
+  }
+
+  .daisy--1 {
+    left: 50%;
+    transform: translateX(-50%) scale(.82);
+  }
+
+  .daisy--2 {
+    left: 8%;
+    transform: scale(.54) rotate(-5deg);
+  }
+
+  .daisy--3 {
+    left: 68%;
+    transform: scale(.58) rotate(6deg);
+  }
+
+  .daisy--4 {
+    left: -8%;
+    transform: scale(.4);
+  }
+
+  .daisy--5 {
+    left: 82%;
+    transform: scale(.42);
+  }
+
+  .daisy--6 {
+    left: 34%;
+    transform: scale(.45);
+  }
+
+  .music-control {
+    right: 15px;
+    top: 15px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
